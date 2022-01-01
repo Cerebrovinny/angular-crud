@@ -1,5 +1,6 @@
-import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, ViewChildren } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import * as $ from 'jquery'
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 export class AppComponent implements OnInit {
   title = 'angular-crud';
+
   name: any;
   personalInfo: any;
   dataSource: any;
@@ -24,6 +26,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
     this.getAll();
+  }
+  
+  openDialog(){
+    this.btnShow.nativeElement.click();
+  }
+  
+  closeDialog(){
+    this.btnClose.nativeElement.click();
   }
 
   getAll(){
@@ -41,11 +51,4 @@ export class AppComponent implements OnInit {
     this.closeDialog();
   }
 
-  openDialog(){
-    this.btnShow.nativeElement.click();
-  }
-
-  closeDialog(){
-    this.btnClose.nativeElement.click();
-  }
 }

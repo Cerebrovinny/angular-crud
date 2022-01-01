@@ -12,4 +12,14 @@ export class AppComponent {
   constructor(private store: AngularFirestore){
 
   }
+
+  ngOnInit(){
+    this.getAll();
+  }
+
+  getAll(){
+    this.store.collection('userInfo').snapshotChanges().subscribe((response) => {
+      console.log('response ', response);
+    })
+  }
 }

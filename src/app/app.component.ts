@@ -8,6 +8,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class AppComponent {
   title = 'angular-crud';
+  dataSource: any;
 
   constructor(private store: AngularFirestore){
 
@@ -19,7 +20,9 @@ export class AppComponent {
 
   getAll(){
     this.store.collection('userInfo').snapshotChanges().subscribe((response) => {
-      console.log('response ', response);
+      // console.log('response ', response);
+      this.dataSource = response.map(item => 
+        Object.assign({id : item.payload.doc.id}, item.payload.doc.data()))
     })
   }
 }

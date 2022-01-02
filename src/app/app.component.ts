@@ -72,4 +72,8 @@ export class AppComponent implements OnInit {
     this.personalInfo = "";
   }
 
+  delete(id: string){
+    this.store.collection('userInfo').doc(id).delete();
+  }
+
 }

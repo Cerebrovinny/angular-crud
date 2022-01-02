@@ -66,4 +66,10 @@ export class AppComponent implements OnInit {
     })
   }
 
+  clearEdit(){
+    this.editObj = null;
+    this.name = "";
+    this.personalInfo = "";
+  }
+
 }

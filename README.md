@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
+# Project Sample website
+https://angular-crud-bf1b7.web.app/
+
 # Crud Project using Angular 13 and Firebase
 This is a small crud project using Angular 13 and FireStore (Firebase), a user can:
 - Read all Members and personal information.

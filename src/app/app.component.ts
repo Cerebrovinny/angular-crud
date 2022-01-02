@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   name: any;
   personalInfo: any;
   dataSource: any;
+  editObj: any;
   
   @ViewChild('btnShow')
   btnShow!: ElementRef;
@@ -45,10 +46,24 @@ export class AppComponent implements OnInit {
   }
 
   add(){
-    this.store.collection('userInfo').add({
-      name: this.name, personalInfo: this.personalInfo
-    });
+    if(this.editObj){
+      this.store.collection('userInfo').doc(this.editObj.id)
+      .update({name: this.name, personalInfo: this.personalInfo});
+    } else {
+      this.store.collection('userInfo').add({
+        name: this.name, personalInfo: this.personalInfo
+      });
+    }
     this.closeDialog();
+  }
+
+  edit(id: string){
+    this.store.collection('userInfo').doc(id).get().subscribe((response) => {
+      this.editObj = Object.assign({id: response.id}, response.data());
+      this.name = this.editObj.name;
+      this.personalInfo = this.editObj.personalInfo;
+      this.openDialog();
+    })
   }
 
 }

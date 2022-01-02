@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
 # Project Sample website
-https://angular-crud-bf1b7.web.app/
+<a href="https://angular-crud-bf1b7.web.app/" target="_blank">https://angular-crud-bf1b7.web.app/</a>
 
 # Crud Project using Angular 13 and Firebase
 This is a small crud project using Angular 13 and FireStore (Firebase), a user can:
